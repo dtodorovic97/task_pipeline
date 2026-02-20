@@ -34,7 +34,10 @@ tasks = [
     payload: %{"whose" => "mine"},
     max_attempts: 2,
     status: :failed,
-    attempts: [%{attempt: 1, timestamp: now, result: "error", error: "Access denied"}],
+    attempts: [
+      %{attempt: 1, timestamp: now, result: "error", error: "Access denied"},
+      %{attempt: 2, timestamp: now, result: "error", error: "Access denied"}
+    ],
     inserted_at: now,
     updated_at: now
   },
