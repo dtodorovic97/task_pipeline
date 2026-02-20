@@ -39,6 +39,17 @@ tasks = [
     updated_at: now
   },
   %{
+    title: "Liquidate old inventory",
+    type: :report,
+    priority: :high,
+    payload: %{"demand" => "now"},
+    max_attempts: 4,
+    status: :processing,
+    attempts: [%{attempt: 1, timestamp: now, result: "started"}],
+    inserted_at: now,
+    updated_at: now
+  },
+  %{
     title: "Open portal to another dimension",
     type: :export,
     priority: :normal,

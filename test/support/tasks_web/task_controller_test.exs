@@ -23,8 +23,6 @@ defmodule TaskPipelineWeb.TaskControllerTest do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
   end
 
-
-
   describe "listing tasks" do
     test "orders by priority (desc) and then newest first", %{conn: conn} do
       raw_task_fixture(%{priority: :low, title: "low"})
@@ -64,7 +62,6 @@ defmodule TaskPipelineWeb.TaskControllerTest do
       assert Map.has_key?(errors, "status")
     end
   end
-
 
   describe "creating tasks" do
     test "persists task and returns 201 with location header", %{conn: conn} do
@@ -115,7 +112,6 @@ defmodule TaskPipelineWeb.TaskControllerTest do
     end
   end
 
-
   describe "showing a task" do
     test "returns full task representation including attempts", %{conn: conn} do
       task =
@@ -147,7 +143,6 @@ defmodule TaskPipelineWeb.TaskControllerTest do
                json_response(conn, 400)
     end
   end
-
 
   describe "task summary" do
     test "returns zero counts when empty", %{conn: conn} do

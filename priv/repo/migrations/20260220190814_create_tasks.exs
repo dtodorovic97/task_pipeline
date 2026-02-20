@@ -29,7 +29,7 @@ defmodule TaskPipeline.Repo.Migrations.CreateTasks do
       )
     """)
 
-   create table(:tasks) do
+    create table(:tasks) do
       add :title, :text, null: false
       add :type, :task_type, null: false
       add :priority, :task_priority, null: false
@@ -42,11 +42,10 @@ defmodule TaskPipeline.Repo.Migrations.CreateTasks do
     end
 
     create constraint(
-      :tasks,
-      :max_attempts_must_be_positive,
-      check: "max_attempts >= 1"
-    )
-
+             :tasks,
+             :max_attempts_must_be_positive,
+             check: "max_attempts >= 1"
+           )
 
     create index(:tasks, [:status, :priority, :inserted_at])
     create index(:tasks, [:type])
